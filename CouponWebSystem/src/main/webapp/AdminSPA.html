@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html ng-app="adminApp">
+	<head>
+		<meta charset="windows-1255">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+	<script type="text/javascript" src="./angular (1).js"></script>
+    <script src="./bootstrap.js"></script>
+    <script src="./angular-route.js"></script>
+    
+		<script src="./AdminSpaJS.js" type="text/javascript"></script>
+		<title>Admin</title>
+	</head>
+
+<body>
+<h1 style="text-align:center">Hello Admin</h1>
+<hr align="left">
+<br>
+<br>
+	<button style="margin:auto" name="d" onClick="showCreateCompanyDiv()">Create Company</button>
+	<br>
+	<div id="createCompanyDiv" style="display:none"style="text-align:center">
+		<br> new company name:
+		<input id="title" />
+		<br> new company password:
+		<input id="compPassword" />
+		<br> new company email:
+		<input id="compEmail" />
+		<button onclick="createCompany()">Create</button>
+	</div>
+	<br>
+	
+	<button onClick="showCreateCustomerDiv()">Create Customer</button>
+	<br>
+	<div id="createCustomerDiv" style="display:none">
+	
+	<br>
+	<br> name:
+	<input id="textField_Name" />
+	<br> password:
+	<input id="textField_Password" />
+	<br>
+	<br>
+	<button name="c" onclick="createCustomer()">Create</button>
+    </div>
+    <br>
+    <button onClick="showRemoveCompanyDiv()">Remove Company</button>
+	<br>
+	<div id="removeCompanyDiv" style="display:none">
+	
+	
+	<br>
+	<br> company name:
+	<input id="RcompName" />
+	<br> company password:
+	<input id="RcompPassword" />
+	<br> company email:
+	<input id="RcompEmail" />
+	<br>
+	<br>
+	<button name="de" onclick="removeCompany()">Remove</button>
+	</div>
+	<br>
+	  <button onClick="showRemoveCustomerDiv()">Remove Customer</button>
+	<br>
+	<div id="removeCustomerDiv" style="display:none">
+	
+	<br>
+	<br> customer name:
+	<input id="RcustName" />
+	<br> customer password:
+	<input id="RcustPassword" />
+	<br>
+	<button name="de" onclick="removeCustomer()">Remove </button>
+	</div>
+	<br>
+	
+    <button onClick="showUpdateCompanyDiv()">Update Company</button>
+	<br>
+	<div id="updateCompanyDiv" style="display:none">
+	
+	<br>
+	<br> company name:
+	<input id="UcompName" />
+	<br> company password:
+	<input id="UcompPassword" />
+	<br> company email:
+	<input id="UcompEmail" />
+	<br>
+	<button  onclick="updateCompany()">Update </button>
+	</div>
+	<br>
+
+    <button onClick="showUpdateCustomerDiv()">Update Customer</button>
+	<br>
+	<div id="updateCustomerDiv" style="display:none">
+	
+	<br>
+	<br> company name:
+	<input id="UcustName" />
+	<br> company password:
+	<input id="UcustPassword" />
+	<br>
+	<button name="de" onclick="updateCustomer()">Update</button>
+	</div>
+	<br>
+	
+	<button name="a" onclick="getAllCompanies()">Get All Of The
+		Companies</button>
+	<br>
+	<br>
+	<button name="b" onclick="getAllCustomers()">Get All Of The
+		Customers</button>
+
+	<div id=displayAllDiv style="text-align:center">
+
+		<p class="greeting-content"></p>
+
+
+
+
+	</div>
+</body>
+</html>

@@ -1,0 +1,82 @@
+<!DOCTYPE html >
+<html>
+
+<head>
+<meta charset="windows-1255">
+
+
+<title>Insert title here</title>
+</head>
+<body>
+
+ 
+   	<div ng-controller="GetCponCtrl as g">
+   
+   <div>
+   <ul >
+		
+		<li ng-repeat="coupon in g.arr" ng-click="g.getCouponData($index)">
+		<span>{{coupon.title}}</span>
+		</li>
+			   </ul>		          
+			          
+			          <div ng-show="g.divMode">
+			          <div>
+			            <h4> Coupon Details:</h4>
+			                </div>
+			                <div>
+			                <span>ID : </span>
+			                <span >{{g.couponData.id}}</span>
+			                </div>
+			          <div>
+			          <span>Title : </span>
+			            <span>{{g.couponData.title}}</span>
+			               </div>
+			          <div>
+			          <span>Start date : </span>
+			             <span>{{g.couponData.startDate}}</span>
+			              </div> 
+			              <div>
+			              <span>Expired Date : </span>
+			             <span ng-hide="g.updateMode">{{g.couponData.endDate}}</span>
+			             <input type="date" ng-show="g.updateMode" ng-model="g.couponData.endDate">
+			              </div>     
+			          <div>
+			          <span>Amount : </span>
+			             <span>{{g.couponData.amount}}</span>
+			              </div>     
+			          <div>
+			          <span>Type : </span>
+			             <span>{{g.couponData.type}}</span>
+			              </div>     
+			          <div>
+			          <span>Massage :</span>
+			             <span>{{g.couponData.massage}}</span>
+			              </div> 
+			              <div>
+			              <span>Price : </span>
+			             <span ng-hide="g.updateMode">{{g.couponData.price}}</span>
+			              <input type="text" ng-show="g.updateMode" ng-model="g.couponData.price">
+			              </div>     
+			          <div>
+			          <span>Image : </span>
+			             <span>{{g.couponData.image}}</span>
+			              </div>     
+			          <div>
+			          <button ng-hide="g.updateMode" ng-click="g.toggleUpdateMode()">Update</button>
+			          <button ng-show="g.updateMode" ng-click="g.updateCoupon()">Save</button>
+			          <button ng-show="g.updateMode" ng-click="g.toggleUpdateMode()">Back</button> 
+			          <button ng-hide="g.updateMode" ng-click="g.deleteCoupon()">Delete</button> 
+			          <br>       
+			            
+			          </div>
+			           </div> 
+		
+			          
+		</div>
+    <button ng-click="g.getCouponC()">cc</button>
+      {{g.cc}}
+   
+  </div> 
+</body>
+</html>

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="windows-1255">
+<title>Insert title here</title>
+</head>
+<body>
+
+   	<div ng-controller="GetCponByIdCtrl as getBy">
+   	
+ 
+        <br>Get Coupon By ID:
+        <input type="number" ng-model="getBy.id"/>
+        <br>
+         <button ng-click="getBy.getCouponById()">Search</button>
+   {{getBy.coupons}}
+   <div>
+   <ul >
+		
+		<li ng-repeat="coupon in getBy.coupons" ng-click="getBy.getCouponData($index)">
+		<span>{{coupon.title}}</span>
+		</li>
+			   </ul>		          
+			          
+			          <div ng-show="getBy.divMode">
+			          <div>
+			            <h4> Coupon Details:</h4>
+			                </div>
+			                <div>
+			                <span>ID : </span>
+			                <span >{{getBy.couponData.id}}</span>
+			                </div>
+			          <div>
+			          <span>Title : </span>
+			            <span>{{getBy.couponData.title}}</span>
+			               </div>
+			          <div>
+			          <span>Start date : </span>
+			             <span>{{getBy.couponData.startDate}}</span>
+			              </div> 
+			              <div>
+			              <span>Expired Date : </span>
+			             <span >{{getBy.couponData.endDate}}</span>
+			            
+			              </div>     
+			          <div>
+			          <span>Amount : </span>
+			             <span>{{getBy.couponData.amount}}</span>
+			              </div>     
+			          <div>
+			          <span>Type : </span>
+			             <span>{{getBy.couponData.type}}</span>
+			              </div>     
+			          <div>
+			          <span>Massage :</span>
+			             <span>{{getBy.couponData.massage}}</span>
+			              </div> 
+			              <div>
+			              <span>Price : </span>
+			             <span>{{getBy.couponData.price}}</span>
+			              </div>     
+			          <div>
+			          <span>Image : </span>
+			             <span>{{getBy.couponData.image}}</span>
+			              </div>     
+			          
+			           </div> 
+		
+			   </div>      
+		</div>
+
+
+
+
+</body>
+</html>

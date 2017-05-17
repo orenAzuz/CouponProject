@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html ng-app="companyApp">
+<head>
+<meta charset="windows-1255">
+
+<script type="text/javascript" src="./angular (1).js"></script>
+<script src="./bootstrap.js"></script>
+<script src="./angular-route.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<script src="./CompanyServices/RouteForCompany.js"></script>
+	<script src="./CompanyServices/CreateCouponServiceAPI.js"></script>
+		<script src="./CompanyServices/CompanyServicesAPI.js"></script>
+	    <script src="./CompanyControllers/GetCouponBy.js"></script>
+	    <script src="./CompanyControllers/CouponByID.js"></script>
+		<script src="./CompanyControllers/GetCponCtrl.js"></script>
+		<script src="./CompanyControllers/CreateCouponCtrl.js"></script>
+        <script src="./CompanyControllers/GetCompanyNameCtrl.js"></script>
+<title>Company</title>
+
+  </head>
+  <body>
+   <div ng-controller="GetNameCtrl as ctrl">
+
+  <h1 style="text-align:center"> Hello {{ctrl.name}} And</h1>
+  
+  </div>
+    <h1 style="text-align:center">Welcome To Coupon World
+        <hr align="center"></h1>
+     <br>
+	<br>
+       <div ng-controller="RouteCtor as r"></div>
+       
+       <h3> <a href="#/">Main Menu</a></h3>
+       <a href="#/CreateCoupon">Add New Coupon</a>
+       <br>       
+       <a href="#/myCouponCompany">My Coupons</a>
+       <br>
+       <a href="#/CouponBy">Get Coupon By Type</a>
+       <br>
+       <a href="#/CouponByID">Get Coupon By ID</a>
+       <br>
+       <a href="/CouponWebSystem/src/main/webapp/Index.html">Sign out</a>
+          <div ng-view></div>
+</body>
+</html>

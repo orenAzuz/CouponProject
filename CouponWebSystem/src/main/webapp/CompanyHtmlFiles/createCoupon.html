@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="windows-1255">
+<title>Insert title here</title>
+</head>
+<body>
+      
+
+		<div ng-controller="CreateCouponCtrl as c">
+		
+		
+		<br> Title:
+		<input type="text" ng-model="c.couponToSend.title" />
+		<br> Start Date:
+		<input type="date" ng-model="c.couponToSend.startDate" />
+		<br> Expired Date:
+		<input type="date" ng-model="c.couponToSend.endDate" />
+		<br> Amount:
+		<input type="number" ng-model="c.couponToSend.amount" />
+		<br> select type:
+		<select ng-model="c.couponToSend.type" form="ype">
+              <option value="RESTURANS">RESTURANS</option>
+              <option value="ELECTRICITY">ELECTRICITY</option>	
+	          <option value="FOOD">FOOD</option>
+              <option value="HELTH">HELTH</option>
+              <option value="SPORT">SPORT</option>
+              <option value="CAMPING">CAMPING</option>
+              <option value="TRAVELLING">TRAVELLING</option>
+              <option value="WEBSITE_STOR">WEBSITE_STOR</option>
+              <option value="MUSIC_INSTRUMENTS">MUSIC_INSTRUMENTS</option>   
+         </select>
+		
+		<input type="text" ng-model="c.couponToSend.type" />
+		<br> Price:
+		<input type="text" ng-model="c.couponToSend.price" />
+		<br> Image:
+		<input type="text" ng-model="c.couponToSend.image" />
+		<br> Massage:
+		<input type="text" ng-model="c.couponToSend.massage" />
+		<br>
+		<button ng-click="c.create()">Save</button>
+		{{c.couponToSend}}
+	
+       </div>
+</body>
+</html>
