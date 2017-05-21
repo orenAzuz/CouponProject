@@ -5,20 +5,35 @@
 <meta charset="windows-1255">
 
    <script type="text/javascript" src="./angular (1).js"></script>
-   <script src="./bootstrap.js"></script>
+   <script src="./bootstrapForCustomer.js"></script>
    <script src="./angular-route.js"></script>
       <script src="./angular-ui-router.js"></script>
+      <script src="./CustomerServices/RoutForCustomer.js"></script>
+      <script src="./CustomerServices/CustomerServicesAPI.js"></script>
+      <script src="./CustomerControllers/AllTheCouponsInTheSystem.js"></script>
+      <script src="./CustomerControllers/MyPurchaseCoupons.js"></script>
+      <script src="./CustomerControllers/GetPurchasedCouponsByPrice.js"></script>
+      <script src="./CustomerControllers/GetPurchasedCouponsByType.js"></script>
    
    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 
 
 <title>Customer</title>
 <body>
- <h1 style="text-align:center">Welcome To Coupon World
+ <h1 style="text-align:center">Welcome To Coupons World
         <hr align="center"></h1>
         
          <div ng-controller="RouteCtor as r"></div>
        
-       <h3> <a href="#/">Main Menu</a></h3>
-       <div ng-view></div>
+       <h3> <a href="#/main">Main Menu</a></h3>
+       <br>
+       <a href="#/allthecoupons">Click Here To See All The Coupons In Coupons World </a>
+       <br>
+       <a href="#/mypurchasecoupons">My Coupons</a>
+       <br>
+       <a href="#/getPurchasedCouponsByPrice">My Coupons Filtered By Price</a>
+       <br>
+       <a href="#/getPurchasedCouponsByType">My Coupons Filtered By Type</a>
+       <br>
+       <div ui-view></div>
 </body></html>

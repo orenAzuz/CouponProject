@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="windows-1255">
+<title>Insert title here</title>
+</head>
+<body>
+    
+     
+        <br>Get Coupon By Price:
+        <input type="text" ng-model="get.price"/>
+        <br>
+         <button ng-click="get.getCouponByPrice()">Search</button>
+   {{getBy.coupons}}
+   <div>
+   <ul >
+		
+		<li ng-repeat="coupon in get.coupons" ng-click="get.getCouponData($index)">
+		<span>{{coupon.title}}</span>
+		<br>
+		 <span>Image : </span>
+			             <span>{{coupon.image}}</span>
+		</li>
+			   </ul>		          
+			          
+			          <div ng-show="get.divMode">
+			          <div>
+			            <h4> Coupon Details:</h4>
+			                </div>
+			              
+			          <div>
+			          <span>Title : </span>
+			            <span>{{get.couponData.title}}</span>
+			               </div>
+			          <div>
+			          <span>Start date : </span>
+			             <span>{{get.couponData.startDate}}</span>
+			              </div> 
+			              <div>
+			              <span>Expired Date : </span>
+			             <span >{{get.couponData.endDate}}</span>
+			            
+			              </div>     
+			          <div>
+			          <span>Amount : </span>
+			             <span>{{get.couponData.amount}}</span>
+			              </div>     
+			          <div>
+			          <span>Type : </span>
+			             <span>{{get.couponData.type}}</span>
+			              </div>     
+			          <div>
+			          <span>Massage :</span>
+			             <span>{{get.couponData.massage}}</span>
+			              </div> 
+			              <div>
+			              <span>Price : </span>
+			             <span>{{get.couponData.price}}</span>
+			              </div>     
+			          <div>
+			          <span>Image : </span>
+			             <span>{{get.couponData.image}}</span>
+			              </div>     
+			          
+			           </div> 
+		
+			   </div>      
+		
+
+
+     
+</body>
+</html>

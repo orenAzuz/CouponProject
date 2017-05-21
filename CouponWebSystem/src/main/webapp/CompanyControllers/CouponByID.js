@@ -28,7 +28,7 @@
 		  
 	this.getCouponById = function()
 		  {
-		
+	      self.divMode = false;
 		  CompanyServicesAPI.GetCouponById(self.id)
 		  .then(function(data){
 				self.coupons = data;

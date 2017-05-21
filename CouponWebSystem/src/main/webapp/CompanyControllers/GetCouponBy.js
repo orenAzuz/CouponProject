@@ -21,7 +21,7 @@
 
 	this.getCouponByType = function()
 		 {
-		
+		 self.divMode = false;
 		 CompanyServicesAPI.GetCouponByType(self.type)
 			.then(function(data){
 					self.coupons = data;		

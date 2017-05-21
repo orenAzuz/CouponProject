@@ -7,6 +7,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
+import javax.ws.rs.PUT;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
@@ -30,7 +31,7 @@ public class CustomerService {
 	@GET
 	@Path("/coupons")
 	@Produces(MediaType.APPLICATION_JSON)
-	public ArrayList<Coupon> allCoupons(){
+	public Response allCoupons(){
 		
 		HttpSession sess =  req.getSession();
 		facade.CustomerFacade customer = (CustomerFacade)sess.getAttribute("customer");
@@ -41,16 +42,18 @@ public class CustomerService {
 		
 		} catch (ClassNotFoundException | SQLException | InterruptedException e) {
 			
-			e.printStackTrace();
+			javax.ws.rs.core.Response.ok(e.getMessage())
+			.status(500).build();
 		}
 		System.out.println(allCoupons);
-		return allCoupons;
+		return javax.ws.rs.core.Response.ok(allCoupons).status(200).build();
 	}
 		System.out.println("THe CustomerService is null!");
-		return null;
+		return javax.ws.rs.core.Response.ok(" Please go back to the login ")
+				.status(500).build();
 	}
 
-	@POST
+	@PUT
 	@Path("/purchaseCoupon/{title}")
 	@Produces(MediaType.APPLICATION_JSON)
 	public void purchaseCoupon(@PathParam("title")String title){
@@ -62,32 +65,34 @@ public class CustomerService {
 			Coupon coupon = customer.getCouponByTitle(title);
 			customer.purchaseCoupon(coupon);
 		} catch (ClassNotFoundException | InterruptedException | SQLException | DuplicateException | RanOutOfStockException | PurchaseFailedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+		
+			javax.ws.rs.core.Response.ok(e.getMessage())
+			.status(500).build();
 		}
 	}
 	@GET
 	@Path("/getPurchasedCouponsByPrice/{price}")
 	@Produces(MediaType.APPLICATION_JSON)
-	public ArrayList<Coupon> couponsByPrice (@PathParam("price")double price){
+	public Response couponsByPrice (@PathParam("price")String price){
 		
 		ArrayList<Coupon>coupons = null;
 		HttpSession sess =  req.getSession();
 		facade.CustomerFacade customer = (CustomerFacade)sess.getAttribute("customer");
 		try {
-			coupons = customer.getAllPurchasedCouponByPrice(price);
+			coupons = customer.getAllPurchasedCouponByPrice(Double.parseDouble(price));
 		} catch (ClassNotFoundException | SQLException | InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+		
+			javax.ws.rs.core.Response.ok(e.getMessage())
+			.status(500).build();
 		}
-		return coupons;
+		return javax.ws.rs.core.Response.ok(coupons).status(200).build();
 		
 	}
 
 	@GET
 	@Path("/getPurchasedCouponsByType/{type}")
 	@Produces(MediaType.APPLICATION_JSON)
-	public ArrayList<Coupon> couponsByType (@PathParam("type")String type){
+	public Response couponsByType (@PathParam("type")String type){
 		
 		ArrayList<Coupon>coupons = null;
 		HttpSession sess =  req.getSession();
@@ -97,10 +102,11 @@ public class CustomerService {
 			
 			
 		} catch (ClassNotFoundException | SQLException | InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			
+			javax.ws.rs.core.Response.ok(e.getMessage())
+			.status(500).build();
 		}
-		return coupons;
+		return javax.ws.rs.core.Response.ok(coupons).status(200).build();
 	}
 	
 	@GET

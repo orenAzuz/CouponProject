@@ -1,31 +1,32 @@
 /**
  * 
  */
-     (function(){
+
+      (function(){
     	 var module = angular.module("adminApp");
     		
-    		module.controller("CreateCompanyCtrl",CreateCompanyCtor);
+    		module.controller("CreateCustomerCtrl",CreateCustomerCtor);
     		
-    		Company = function (copmName,password,email){
+    		Customer = function (custName,password){
     			
-    			this.copmName = copmName;
+    			this.custName = custName;
     			this.password = password;
-    			this.email = email;
+    	
     			
     			
     		} 
     		
-    		 function	CreateCompanyCtor (AdminServicesAPI)
+    		 function	CreateCustomerCtor (AdminServicesAPI)
     		{
     			
     			var self = this;
     			
-    			self.company = new Company();
+    			self.customer = new Customer();
     			
-    			this.createCompany = function(){
+    			this.createCusrtomer = function(){
     				alert("ghd");
     				
-    				AdminServicesAPI.createCompany(self.company)
+    				AdminServicesAPI.createCustomer(self.customer)
     				.then(function(response)
     			    		 {
     					  		
@@ -41,5 +42,4 @@
     	 
     	 
      })();
-     
      

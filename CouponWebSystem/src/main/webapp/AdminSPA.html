@@ -4,8 +4,18 @@
 		<meta charset="windows-1255">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 	<script type="text/javascript" src="./angular (1).js"></script>
-    <script src="./bootstrap.js"></script>
-    <script src="./angular-route.js"></script>
+	 <script src="./angular-ui-router.js"></script>
+    <script src="./bootsrapForAdmin.js"></script>
+    <script src="./AdminServices/RouterForAdmin.js"></script>
+    <script src="./AdminServices/AdminServicesAPI.js"></script>
+    <script src="./AdminControllers/CreateCompanyCtrl.js"></script>
+     <script src="./AdminControllers/CreateCustomerCtrl.js"></script>
+     <script src="./AdminControllers/AllTheCompanies.js"></script>
+     <script src="./AdminControllers/AllTheCustomers.js"></script>
+     <script src="./AdminControllers/GetCustomerByIDCtrl.js"></script>
+     <script src="./AdminControllers/GetCompanyByIDCtrl.js"></script>
+     
+
     
 		<script src="./AdminSpaJS.js" type="text/javascript"></script>
 		<title>Admin</title>
@@ -16,108 +26,26 @@
 <hr align="left">
 <br>
 <br>
-	<button style="margin:auto" name="d" onClick="showCreateCompanyDiv()">Create Company</button>
-	<br>
-	<div id="createCompanyDiv" style="display:none"style="text-align:center">
-		<br> new company name:
-		<input id="title" />
-		<br> new company password:
-		<input id="compPassword" />
-		<br> new company email:
-		<input id="compEmail" />
-		<button onclick="createCompany()">Create</button>
-	</div>
-	<br>
+           <div ng-controller="RouteCtor as r"></div>
+       
+       <h3> <a href="#/main">Main Menu</a></h3>
+       <br>
+       <a href="#/AllTheCompanies">All The Companies In The System</a>
+       <br>
+       <a href="#/AllTheCustomers">All The Customers In The System</a>
+       <br>
+       <a href="#/CreateCompany">Add Company</a>
+       <br>
+       <a href="#/CreateCustomer">Add Customer</a>
+       <br>
+       <a href="#/GetCustomerByID">Get Customer By ID</a>
+       <br>
+       <a href="#/GetCompanyByID">Get Company By ID</a>
+       <br>
+       <br>
+       
+        <div ui-view></div>
 	
-	<button onClick="showCreateCustomerDiv()">Create Customer</button>
-	<br>
-	<div id="createCustomerDiv" style="display:none">
-	
-	<br>
-	<br> name:
-	<input id="textField_Name" />
-	<br> password:
-	<input id="textField_Password" />
-	<br>
-	<br>
-	<button name="c" onclick="createCustomer()">Create</button>
-    </div>
-    <br>
-    <button onClick="showRemoveCompanyDiv()">Remove Company</button>
-	<br>
-	<div id="removeCompanyDiv" style="display:none">
-	
-	
-	<br>
-	<br> company name:
-	<input id="RcompName" />
-	<br> company password:
-	<input id="RcompPassword" />
-	<br> company email:
-	<input id="RcompEmail" />
-	<br>
-	<br>
-	<button name="de" onclick="removeCompany()">Remove</button>
-	</div>
-	<br>
-	  <button onClick="showRemoveCustomerDiv()">Remove Customer</button>
-	<br>
-	<div id="removeCustomerDiv" style="display:none">
-	
-	<br>
-	<br> customer name:
-	<input id="RcustName" />
-	<br> customer password:
-	<input id="RcustPassword" />
-	<br>
-	<button name="de" onclick="removeCustomer()">Remove </button>
-	</div>
-	<br>
-	
-    <button onClick="showUpdateCompanyDiv()">Update Company</button>
-	<br>
-	<div id="updateCompanyDiv" style="display:none">
-	
-	<br>
-	<br> company name:
-	<input id="UcompName" />
-	<br> company password:
-	<input id="UcompPassword" />
-	<br> company email:
-	<input id="UcompEmail" />
-	<br>
-	<button  onclick="updateCompany()">Update </button>
-	</div>
-	<br>
 
-    <button onClick="showUpdateCustomerDiv()">Update Customer</button>
-	<br>
-	<div id="updateCustomerDiv" style="display:none">
-	
-	<br>
-	<br> company name:
-	<input id="UcustName" />
-	<br> company password:
-	<input id="UcustPassword" />
-	<br>
-	<button name="de" onclick="updateCustomer()">Update</button>
-	</div>
-	<br>
-	
-	<button name="a" onclick="getAllCompanies()">Get All Of The
-		Companies</button>
-	<br>
-	<br>
-	<button name="b" onclick="getAllCustomers()">Get All Of The
-		Customers</button>
-
-	<div id=displayAllDiv style="text-align:center">
-
-		<p class="greeting-content"></p>
-
-
-
-
-	</div>
 </body>
 </html>

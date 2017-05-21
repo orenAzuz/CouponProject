@@ -20,6 +20,7 @@ import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.Context;
 import javax.ws.rs.core.MediaType;
+import javax.ws.rs.core.Response;
 
 import core.Company;
 import core.Coupon;
@@ -57,7 +58,7 @@ public class AdminService {
    @GET
    @Path("/allCompanies")
    @Produces(MediaType.APPLICATION_JSON)
-   public ArrayList<Company> allCompanies() throws ClassNotFoundException, SQLException, InterruptedException{
+   public Response allCompanies() {
 
 	ArrayList<Company>clist = null;
 	HttpSession sess =  req.getSession();
@@ -80,7 +81,7 @@ public class AdminService {
 	}
 	System.out.println(clist);
 	
-	return admin.getAllCompanies();
+	return javax.ws.rs.core.Response.ok(clist).status(200).build();
 }
 
     @GET
@@ -113,8 +114,9 @@ public class AdminService {
  	@POST
  	@Path("/createCompany")
  	@Consumes(MediaType.APPLICATION_JSON)
-    public HttpServletResponse createCompany( Company company) throws IOException{
+    public Response createCompany( Company company) throws IOException{
  	
+ 		System.out.println(company);
  		HttpSession sess =  req.getSession();
     	facade.AdminFacade admin = (AdminFacade)sess.getAttribute("admin");
  	
@@ -125,10 +127,13 @@ public class AdminService {
 			System.out.println("hi");
 		} catch (ClassNotFoundException | SQLException | InterruptedException | DuplicateException  e) {
 		   
-			//setResponse(500, e.getMessage());
+			javax.ws.rs.core.Response.ok(e.getMessage())
+			.status(500).build();
 
 		}
-    	return response;
+    	return javax.ws.rs.core.Response.ok(" The coupon "+ company.getCopmName() + 
+				" Successfully created").status(200).build();
+
     	
     }
     
@@ -143,39 +148,46 @@ public class AdminService {
     	try {
 			admin.createCustomer(customer);
 		} catch (ClassNotFoundException | SQLException | InterruptedException | DuplicateException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			javax.ws.rs.core.Response.ok(e.getMessage())
+			.status(500).build();
+
 		}
     	
     	
     }
     @DELETE
-    @Path("/removeCompany")
+    @Path("/removeCompany/{name}")
     @Consumes(MediaType.APPLICATION_JSON)
-	public void removeComapny(Company company){
+	public void removeComapny(@PathParam("name")String name){
 		
+    	Company company = new Company();
+    	company.setCopmName(name);
     	HttpSession sess =  req.getSession();
     	facade.AdminFacade admin = (AdminFacade)sess.getAttribute("admin");
     	try {
 			admin.removeCompany(company);
 		} catch (ClassNotFoundException | SQLException | InterruptedException | NotAvailableException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			javax.ws.rs.core.Response.ok(e.getMessage())
+			.status(500).build();
+
 		}
 		
 	}
     @DELETE
-    @Path("/removeCustomer")
+    @Path("/removeCustomer/{name}")
     @Consumes(MediaType.APPLICATION_JSON)
-	public void removeCustomer(Customer customer){
+	public void removeCustomer(@PathParam("name")String name ){
 		
+    	Customer customer = new Customer();
+    	customer.setCustName(name);
     	HttpSession sess =  req.getSession();
     	facade.AdminFacade admin = (AdminFacade)sess.getAttribute("admin");
     	try {
 			admin.removeCustomer(customer);
 		} catch (ClassNotFoundException | SQLException | InterruptedException | NotAvailableException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			javax.ws.rs.core.Response.ok(e.getMessage())
+			.status(500).build();
+
 		}
 		
 	}
@@ -190,8 +202,9 @@ public class AdminService {
     	try {
 			admin.updateCompany(company);
 		} catch (ClassNotFoundException | SQLException | InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			javax.ws.rs.core.Response.ok(e.getMessage())
+			.status(500).build();
+
 		}
     }
     
@@ -206,14 +219,15 @@ public class AdminService {
     	try {
 			admin.updateCustomet(customer);
 		} catch (ClassNotFoundException | SQLException | InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			javax.ws.rs.core.Response.ok(e.getMessage())
+			.status(500).build();
+
 		}
     }
     @GET
-    @Path("/customerById")
+    @Path("/customerById/{id}")
     @Produces(MediaType.APPLICATION_JSON)
-    public Customer getCustomerById(Long id){
+    public Response getCustomerById(@PathParam("id")Long id){
     	
         Customer customer = null;
     	HttpSession sess =  req.getSession();
@@ -221,16 +235,17 @@ public class AdminService {
     	try {
 			customer = admin.getCustomer(id);
 		} catch (ClassNotFoundException | SQLException | InterruptedException | NotAvailableException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			javax.ws.rs.core.Response.ok(e.getMessage())
+			.status(500).build();
+
 		}
     	
-    	return customer;
+    	return javax.ws.rs.core.Response.ok(customer).status(200).build();
     }
     @GET
-    @Path("/companyById")
+    @Path("/companyById/{id}")
     @Produces(MediaType.APPLICATION_JSON)
-    public Company getCompanyById(Long id){
+    public Response getCompanyById(@PathParam("id")Long id){
     	
         Company company = null;
     	HttpSession sess =  req.getSession();
@@ -239,10 +254,12 @@ public class AdminService {
 			company = admin.getCompanyById(id);
 		} catch (ClassNotFoundException | SQLException | InterruptedException | NotAvailableException e) {
 		
-			e.printStackTrace();
+			javax.ws.rs.core.Response.ok(e.getMessage())
+			.status(500).build();
+
 		}
     	
-    	return company;
+    	return javax.ws.rs.core.Response.ok(company).status(200).build();
     }
     
     

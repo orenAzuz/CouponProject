@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="windows-1255">
+<title>Insert title here</title>
+</head>
+<body>
+
+<div>
+   <ul >
+		
+		<li ng-repeat="coupon in all.coupons" ng-click="all.getCouponData($index)">
+		<span>{{coupon.title}}</span>
+		<br>
+		 <span>Image : </span>
+		<span>{{coupon.image}}</span>
+		</li>
+			   </ul>		          
+			          
+			          <div ng-show="all.divMode">
+			          <div>
+			               <h4> Coupon Details:</h4>
+			          </div>
+			           
+			          <div>
+			                <span>Title : </span>
+			                <span>{{all.couponData.title}}</span>
+			          </div>
+			          <div>
+			                <span>Start date : </span>
+			                <span>{{all.couponData.startDate}}</span>
+			           </div> 
+			           <div>
+			                <span>Expired Date : </span>
+			                <span>{{all.couponData.endDate}}</span>
+			          </div>     
+			          <div>
+			                <span>Amount : </span>
+			                <span>{{all.couponData.amount}}</span>
+			          </div>     
+			          <div>
+			                <span>Type : </span>
+			                <span>{{all.couponData.type}}</span>
+			          </div>     
+			          <div>
+			               <span>Massage :</span>
+			               <span>{{all.couponData.massage}}</span>
+			          </div> 
+			          <div>
+			                <span>Price : </span>
+			                <span>{{all.couponData.price}}</span>
+			          </div>     
+			          <div>
+			                <span>Image : </span>
+		                    <span>{{all.couponData.image}}</span>
+			          </div>     
+			          <div>
+			          
+			          <button  ng-click="all.purchase()">Purchase</button>
+			         
+			           </div> 
+		
+			          
+		</div>
+
+</body>
+</html>

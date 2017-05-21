@@ -25,7 +25,8 @@ var debug = 0;
 	function CreateCouponCtor(CreateCouponServiceAPI)
 	{
 		var self = this;
-	
+		self.couponToSend = new CouponToSend();
+		
 		  this.create = function ()
 		  {
 			  console.log(self.couponToSend)

@@ -18,7 +18,7 @@
 		self.couponData;
 		
 		
-		self.couponToSend = new CouponToSend();
+		
 		
 		
 		CompanyServicesAPI.GetCoupon()
@@ -39,15 +39,7 @@
 			self.divMode = true;
 			
 		}
-			
-	    this.getCouponC = function (){
-		 
-	 
-	    	CompanyServicesAPI.CouponCon()
-			.then(function(data){
-					self.cc = data;
-					});	
-			 }
+
 	    
 	    this.toggleUpdateMode = function(){
 	    	

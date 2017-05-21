@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="windows-1255">
+<title>Insert title here</title>
+</head>
+<body>
+         
+          
+        <br>Get Company By ID:
+        <br>
+        Insert ID:
+        <input type="number" ng-model="ctrl.id"/>
+        <br>
+             <button ng-click="ctrl.getCompanyByID()">Search</button>
+             <br>
+             <br>
+        
+            <div ng-show="ctrl.companyDiv">
+            
+                 <div>
+                 <h3> Company Details : </h3>
+                 
+                        <div>
+			                <span>ID : </span>
+			                <span >{{ctrl.company.id}}</span>
+			                </div>
+			                <div>
+			                <span>Name : </span>
+			                <span >{{ctrl.company.copmName}}</span>
+			                </div>
+			                    <div>
+			                  <span >Company Email : </span>
+			                <span ng-hide="ctrl.updateMode">{{ctrl.company.email}}</span>
+			                <input type="text" ng-show="ctrl.updateMode" ng-model="ctrl.company.email">
+			                <div>
+			                  <span >Company Password : </span>
+			                <span ng-hide="ctrl.updateMode">{{ctrl.company.password}}</span>
+			                <input type="text" ng-show="ctrl.updateMode" ng-model="ctrl.company.password">
+			                </div>
+			            <div>
+			          <button ng-hide="ctrl.updateMode" ng-click="ctrl.toggleUpdateMode()">Update</button>
+			          <button ng-show="ctrl.updateMode" ng-click="ctrl.updateCompany()">Save</button>
+			          <button ng-show="ctrl.updateMode" ng-click="ctrl.toggleUpdateMode()">Back</button> 
+			          <button ng-hide="ctrl.updateMode" ng-click="ctrl.deleteCompany()">Delete</button> 
+			          <br>       
+			            
+			          </div>
+			          
+                    <div> 
+                    <h3>Coupons : </h3>
+                    </div>
+   
+   <ul >
+		
+		<li ng-repeat="coupon in ctrl.coupons" ng-click="ctrl.getCouponData($index)">
+		<span>{{coupon.title}}</span>
+		</li>
+			   </ul>		          
+			          
+			          <div ng-show="ctrl.divMode">
+			          <div>
+			            <h4> Coupon Details:</h4>
+			                </div>
+			                <div>
+			                <span>ID : </span>
+			                <span >{{ctrl.couponData.id}}</span>
+			                </div>
+			          <div>
+			          <span>Title : </span>
+			            <span>{{ctrl.couponData.title}}</span>
+			               </div>
+			          <div>
+			          <span>Start date : </span>
+			             <span>{{ctrl.couponData.startDate}}</span>
+			              </div> 
+			              <div>
+			              <span>Expired Date : </span>
+			             <span >{{ctrl.couponData.endDate}}</span>
+			            
+			              </div>     
+			          <div>
+			          <span>Amount : </span>
+			             <span>{{ctrl.couponData.amount}}</span>
+			              </div>     
+			          <div>
+			          <span>Type : </span>
+			             <span>{{ctrl.couponData.type}}</span>
+			              </div>     
+			          <div>
+			          <span>Massage :</span>
+			             <span>{{ctrl.couponData.massage}}</span>
+			              </div> 
+			              <div>
+			              <span>Price : </span>
+			             <span>{{ctrl.couponData.price}}</span>
+			              </div>     
+			          <div>
+			          <span>Image : </span>
+			             <span>{{ctrl.couponData.image}}</span>
+			              </div>     
+			          
+			           </div> 
+		
+			   </div>      
+		</div>
+
+          
+           
+</body>
+</html>

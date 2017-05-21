@@ -72,7 +72,7 @@ public class CompanyService {
 	@Path("/createCoupon")
 	@Produces(MediaType.APPLICATION_JSON)
 	@Consumes(MediaType.APPLICATION_JSON)
-	public void CreateCoupon(CouponConductor couponc) throws ClassNotFoundException, SQLException{
+	public Response CreateCoupon(CouponConductor couponc) throws ClassNotFoundException, SQLException{
 	
 		HttpSession sess =  req.getSession();
 		facade.CompanyFacade company = (CompanyFacade)sess.getAttribute("company");
@@ -87,7 +87,7 @@ public class CompanyService {
 					.status(500).build();
 		
 		}
-		 javax.ws.rs.core.Response.ok(" The coupon "+ couponc.getTitle() + 
+		return javax.ws.rs.core.Response.ok(" The coupon "+ couponc.getTitle() + 
 				" Successfully created").status(200).build();
 
 		
